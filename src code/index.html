@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tokshop - E-Commerce</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Tokshop</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#catalog">Catalog</a></li>
+                <li><a href="#about">About</a></li>
+                <div class="cart">
+                <span id="cart-count">0</span> Cart
+            </div>
+            </ul>
+        </nav>
+    </header>
+    <main id="main-content">
+        <section class="welcome-section" id="home">
+            <h3 class="depan1">Welcome to</h3>
+            <h1 class="depan2">#1 E-Commerce in Indonesia</h1>
+        </section>
+
+        <section class="catalog-section" id="catalog">
+            <section class="catalog-text">
+                <h2 class="catalog1">Catalog</h2>
+                <h3 class="catalog2">Sort by:</h3>
+            </section>
+            <div id="filters">
+                <button class="filter" id="filter-for-you">For You</button>
+                <button class="filter" id="filter-newest">Newest</button>
+                <button class="filter" id="filter-sale">Sale</button>
+            </div>
+            <div id="products-container">
+                <!-- Produk akan dimasukkan di sini menggunakan JavaScript -->
+            </div>
+        </section>
+
+        <section id="cart-page" style="display:none;">
+            <h2>Your Cart</h2>
+            <div id="cart-items"></div>
+            <div>Total Product: <span id="total-products">0</span></div>
+            <div>Total Price: Rp. <span id="total-price">0</span></div>
+            <button id="checkout-btn">Checkout</button>
+        </section>
+    </main>
+
+<section id="about">
+    <footer>
+        <div>Address: Jl. Teknik Kimia ITS no 23</div>
+        <div>Contact: +6282248262973</div>
+        <div>Email: tokshop@gmail.com</div>
+    </footer>
+</section>
+    <script src="script.js"></script>
+</body>
+</html>
