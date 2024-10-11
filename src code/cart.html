@@ -3,30 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tokshop - E-Commerce</title>
+    <title>Tokshop - Checkout</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-color: #084c61; 
+        }
+        .checkout-section {
+            background-color: #084c61; 
+            padding: 20px;
+            border-radius: 10px;
+            width: 400px;
+            margin: auto; 
+        }
+    </style>
 </head>
-
-<!-- Page checkout juga masih belum dibikin, Count total product dan Count total price -->
-
 <body>
     <header>
         <nav>
             <div class="logo">Tokshop</div>
             <ul>
-                <li><a href="/src code/index.html#home">Home</a></li>
-                <li><a href="/src code/index.html#catalog">Catalog</a></li>
-                <li><a href="/src code/index.html#about">About</a></li>
-                <div class="cart">
-                <span id="cart-count">0</span> Cart
-            </div>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#catalog">Catalog</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#cart" class="cart-button">Cart <span>🛒</span></a></li>
             </ul>
         </nav>
     </header>
-    <main id="main-content">
-        <section class="welcome-section" id="home">
-            <h1 class="depan2">Isi Page untuk checkout, sesuai ketentuan soal.</h1>
+
+    <main>
+        <h1>Checkout</h1>
+        <section class="checkout-section">
+            <div class="checkout-box" id="checkout-box">
+                <div id="cart-items-container"></div>
+                <div class="summary">
+                    <p>Total Product: <span id="total-count">0</span></p>
+                    <p>Total Price: Rp. <span id="total-price">0</span></p>
+                </div>
+                <button class="pay-button" onclick="clearCart()">Clear Cart</button>
+                <button class="pay-button">Pay</button>
+            </div>
         </section>
     </main>
+    <script src="script.js"></script>
 </body>
-</head>
+</html>
