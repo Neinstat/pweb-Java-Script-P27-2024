@@ -11,89 +11,31 @@ html {
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto; /* Ubah menjadi auto untuk mengakomodasi konten */
 }
 
 header {
-
-
-    
-    nav {
-        z-index: 1000;
-        background-color: #004f5d;
-        margin: 0;
-        padding: 20px 15px 20px 15px;
-        box-sizing: border-box;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f4;
-    }
-    
-    nav .logo {
-        color: #fff;
-        font-size: 30px;
-        font-weight: 400;
-    }
-
-    .cart {
-        color: #ffb84d;
-        cursor: pointer;
-        margin-right: 2px;
-    }
-
-    .cart-text {
-        color: #ffb84d;
-        text-decoration: none;
-    }
-    
-    main {
-        padding: 20px;
-    }
-    
-    #catalog {
-        margin-top: 20px;
-    }
-    
-    #products-container {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-    }
-    
-    .product {
-        background-color: #fff;
-        padding: 10px;
-        border-radius: 5px;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        width: 200px;
-    }
-    
-    .product img {
-        width: 100%;
-        height: 150px;
-        object-fit: cover;
-    }
-    
-    footer {
-        background-color: #004f5d;
-        color: #fff;
-        padding: 20px;
-        text-align: center;
-    }
+    width: 100%;
+    background-color: #004f5d;
+    padding: 20px 15px;
 }
 
-.depan1 {
-    color: #ffb84d;
-    font-size: 25px;
+nav {
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.depan2 {
-    color: #052429;
-    font-size: 50px;
+nav .logo {
+    color: #fff;
+    font-size: 30px;
+    font-weight: 400;
 }
 
 nav ul {
@@ -107,9 +49,15 @@ nav ul li a {
     text-decoration: none;
 }
 
-.cart {
-    color: #ffb84d;
-    cursor: pointer;
+.cart-button {
+    background-color: #ffb84d;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: white;
+}
+
+main {
+    padding: 20px;
 }
 
 .welcome-section {
@@ -119,12 +67,8 @@ nav ul li a {
     align-items: center;
 }
 
-main {
-    padding: 0;
-}
-
 .catalog-section {
-    padding: 15px 30px 15px 30px;
+    padding: 15px 30px;
     background-color: #004f5d;
 }
 
@@ -133,13 +77,13 @@ main {
 }
 
 .catalog1 {
-    color:#ffb84d;
+    color: #ffb84d;
     font-size: 40px;
-    padding: 10px 0 10px 0;
+    padding: 10px 0;
 }
 
 .catalog2 {
-    color:#ffffff;
+    color: #ffffff;
     font-size: 17px;
     font-weight: 100;
     padding: 33px 0 3px 10px;
@@ -150,11 +94,10 @@ main {
     border: 2px solid white;
     border-radius: 10px;
     background-color: #004f5d;
-    padding: 5px 10px 5px 10px;
-    margin: 0px 5px 15px 5px;
+    padding: 5px 10px;
+    margin: 0 5px 15px;
     cursor: pointer;
-    pointer-events: auto;
-    transition: background-color 0.5 ease;
+    transition: background-color 0.5s ease;
 }
 
 .filter:hover {
@@ -162,31 +105,238 @@ main {
     color: #052429;
 }
 
+/* Styling untuk produk di halaman catalog */
 #products-container {
     display: flex;
     flex-wrap: wrap;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); 
+    gap: 40px; /* Jarak antar produk */
     justify-content: center;
-    gap: 20px;
 }
 
 .product {
     background-color: #fff;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
-    width: 200px;
-    align-self: stretch;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Bayangan untuk efek 3D */
+    transition: transform 0.3s, box-shadow 0.3s; /* Animasi saat hover */
+    text-align: center; /* Pusatkan konten produk */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 270px; /* Lebar yang sama untuk semua produk */
+    height: 350px; /* Tinggi yang sama untuk semua produk */
+     /* Agar produk memiliki ketinggian yang sama */
 }
 
 .product img {
     width: 100%;
-    height: 150px;
-    object-fit: cover;
+    height: 150px; /* Sesuaikan tinggi gambar */
+    object-fit: cover; /* Agar gambar rapi */
+    border-radius: 5px; /* Sedikit lengkung pada gambar */
+    margin-bottom: 15px;
+}
+
+.product-details {
+    display: flex; /* Menggunakan flexbox untuk layout */
+    flex-direction: column; /* Menempatkan judul dan harga secara vertikal */
+    align-items: flex-start; /* Menyelaraskan ke kiri */
+    margin-bottom: 0px; /* Jarak bawah antara detail produk dan tombol */
+}
+
+.product-details h3 {
+    margin: 0; /* Hapus margin default */
+    font-size: 18px; /* Ukuran font judul */
+    color: #004f5d;
+    margin-bottom: 5px; /* Jarak antara judul dan harga */
+}
+
+.product-details p {
+    margin: 0; /* Hapus margin default */
+    font-size: 16px; /* Ukuran font harga */
+    color: #333;
+}
+
+.button-container {
+    display: flex; /* Menggunakan flexbox */
+    justify-content: flex-end; /* Pindahkan tombol ke kanan */
+    width: 100%; /* Pastikan tombol mengambil lebar penuh produk */
+}
+
+.product button {
+    background-color: #ffb84d; /* Warna latar belakang tombol */
+    color: white; /* Warna teks */
+    border: none; /* Menghapus border default */
+    padding: 10px 15px; /* Padding di dalam tombol */
+    border-radius: 5px; /* Sudut tombol membulat */
+    font-size: 24px; /* Ukuran font lebih besar untuk simbol + */
+    cursor: pointer; /* Kursor tangan saat hover */
+    transition: background-color 0.3s ease; /* Transisi saat hover */
+}
+
+.product button:hover {
+    background-color: #e67e22;
+}
+
+.product:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 footer {
-    background-color: #052429;
+    background-color: #004f5d;
     color: #fff;
     padding: 20px;
     text-align: center;
+}
+
+.checkout-section {
+    background-color: #084c61;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 36px;
+    color:#fff;
+}
+
+.checkout-box {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    color: black;
+}
+
+.checkout-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.checkout-item img {
+    width: 20px;
+    height: 20px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+
+.item-details {
+    flex-grow: 1;
+}
+
+.item-details h3 {
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+
+.item-details p {
+    font-size: 16px;
+    color: #333;
+}
+
+.summary {
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+.pay-button {
+    background-color: #ffb84d;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.pay-button:hover {
+    background-color: #e67e22;
+}
+
+.depan1 {
+    color: #ffb84d;
+    font-size: 25px;
+}
+
+.depan2 {
+    color: #052429;
+    font-size: 50px;
+}
+
+.remove-button {
+    background-color: #ff3b3b; 
+    color: white; 
+    border: none; 
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 24px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease;
+    margin-left: 10px;
+}
+
+.remove-button:hover {
+    background-color: #e63946;
+
+
+.checkout-box {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    color: black;
+}
+
+.summary {
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+.cart-item {
+    display: flex; 
+    align-items: center; 
+    margin-bottom: 20px; 
+}
+
+.cart-item-content {
+    display: flex;
+    align-items: center;
+    flex-grow: 1; 
+}
+
+.cart-item-image {
+    width: 50px; 
+    height: 50px; 
+    object-fit: cover; 
+    margin-right: 15px; 
+}
+
+.product-details {
+    display: flex; 
+    flex-direction: column;
+    justify-content: center; 
+}
+
+.cart {
+    position: relative;
+}
+
+#cart-count {
+    background-color: #ffb84d;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: white;
+}
+
+#cart-text {
+    background-color: #ffb84d;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: white;
 }
